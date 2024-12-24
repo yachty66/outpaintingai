@@ -1,1 +1,1 @@
-OS backend of https://www.stablecharacter.com
+OS outpainting workflow of https://www.outpaintingai.com
