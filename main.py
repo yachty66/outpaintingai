@@ -38,14 +38,16 @@ def add_image_to_base(resized_image_path, base_image_path="base.png"):
         combined.save(output_path)
         return output_path
 
-def generate_outpaint(input_image_path, mask_path="mask.png", prompt="Extend the image beyond"):
+def generate_outpaint(input_image_path, mask_path="mask.png", prompt="fill the image"):
     """Main function to process and outpaint an image"""
     # Resize the input image
     resized_path = resize_image(input_image_path)
+    print(f"Resized image saved to: {resized_path}")
     
     # Add to base image
     combined_path = add_image_to_base(resized_path)
-    
+    print(f"Combined image saved to: {combined_path}")
+
     # Setup replicate input
     input_data = {
         "image": Path(combined_path),
@@ -68,5 +70,5 @@ def generate_outpaint(input_image_path, mask_path="mask.png", prompt="Extend the
 
 if __name__ == "__main__":
     # Example usage
-    result = generate_outpaint("example.jpeg", prompt="Extend the image beyond")
+    result = generate_outpaint("example.jpeg")
     print(f"Generated output saved to: {result}")
